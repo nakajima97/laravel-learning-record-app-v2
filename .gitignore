@@ -1,0 +1,34 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+# Created by https://www.toptal.com/developers/gitignore/api/php-cs-fixer
+# Edit at https://www.toptal.com/developers/gitignore?templates=php-cs-fixer
+
+### PHP-CS-Fixer ###
+# Covers PHP CS Fixer
+# Reference: https://cs.symfony.com/
+
+# Generated files
+.php-cs-fixer.cache
+
+# Local config See: https://cs.symfony.com/doc/config.html
+# .php-cs-fixer.php
+
+# End of https://www.toptal.com/developers/gitignore/api/php-cs-fixer
