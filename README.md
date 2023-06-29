@@ -1,15 +1,24 @@
 # 概要
 Laravelで開発を行う際のテンプレートリポジトリ
 
-# git clone後に実行するコマンド
+# git clone後に実行すること
 ```
 docker run --rm \
     -u "$(id -u):$(id -g)" \
-    -v $(pwd):/var/www/html \
+    -v "$(pwd):/var/www/html" \
     -w /var/www/html \
-    laravelsail/php81-composer:latest \
+    laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
 ```
+
+.envの作成  
+`cp .env.example .env`
+
+起動  
+`sail up -d`
+
+key作成  
+`sail artisan key:generate`
 
 # 主要パッケージ
 - Laravel sail
