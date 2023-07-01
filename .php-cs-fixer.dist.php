@@ -107,7 +107,10 @@ return (new PhpCsFixer\Config())
             'database',
             'database',
             'bootstrap',
-            'public'
+            'public',
+            './app/Http/Controllers/Auth',
+            './tests/Feature/Auth',
+            './app/Http/Requests'
         ])
     ->in(__DIR__)
     )
