@@ -106,6 +106,8 @@ return (new PhpCsFixer\Config())
             'database',
             'bootstrap',
             'public',
+            'storage',
+            'tests/Feature/Auth',
             './app/Http/Controllers/Auth',
             './tests/Feature/Auth',
             './app/Http/Requests'
