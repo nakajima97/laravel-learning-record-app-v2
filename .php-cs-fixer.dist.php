@@ -18,9 +18,7 @@ return (new PhpCsFixer\Config())
         ],
         // 'blank_line_after_opening_tag' => true,
         // 'blank_line_before_statement' => true,
-        'braces' => [
-            'allow_single_line_closure' => true,
-        ],
+        'single_space_around_construct' => true,
         // 'cast_spaces' => true,
         // 'class_definition' => array('singleLine' => true),
         'concat_space' => ['spacing' => 'one'],
