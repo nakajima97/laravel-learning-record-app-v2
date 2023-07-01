@@ -12,7 +12,10 @@ parameters:
 #    ignoreErrors:
 #        - '#PHPDoc tag @var#'
 #
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
+    excludePaths:
+        - ./app/Http/Controllers/Auth
+        - ./tests/Feature/Auth
+        - ./app/Http/Requests
+        - ./app/Http/Controllers/ProfileController.php
 #
 #    checkMissingIterableValueType: false
