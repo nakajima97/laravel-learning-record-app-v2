@@ -20,6 +20,9 @@ docker run --rm \
 key作成  
 `sail artisan key:generate`
 
+php cs fixerのインストール
+`composer install  --working-dir=tools/php-cs-fixer`
+
 # 主要パッケージ
 - Laravel sail
 - Larastan
