@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $get_category = new GetCategoryList();
         $categories = $get_category();
-        return $categories;
+        return view('category.index', ['categories' => $categories]);
     }
 
     /**
