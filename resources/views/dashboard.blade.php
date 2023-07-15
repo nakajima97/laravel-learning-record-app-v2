@@ -10,7 +10,14 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
-                        <div class="container px-5 py-24 mx-auto">
+                        <div class="container px-5 py-10 mx-auto">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">今月の総学習時間</h1>
+                            <h2 class="text-2xl font-medium text-white title-font mb-2">
+                                {{ $total_study_time_this_month }}分</h2>
+                        </div>
+                    </section>
+                    <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
+                        <div class="container px-5 py-10 mx-auto">
                             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">今日の学習記録</h1>
                             @foreach ($today_records as $today_record)
                                 <div class="-my-8 divide-y-2 divide-gray-800">
