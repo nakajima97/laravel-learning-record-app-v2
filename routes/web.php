@@ -25,7 +25,8 @@ Route::get('/dashboard', function () {
 
 Route::resource('categories', CategoryController::class);
 
-Route::get('/record/create', [RecordController::class, 'create'])->name('record.create');
+Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
+Route::post('/records', [RecordController::class, 'store'])->name('records.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
