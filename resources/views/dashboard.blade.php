@@ -9,7 +9,23 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
+                        <div class="container px-5 py-24 mx-auto">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">今日の学習記録</h1>
+                            @foreach ($today_records as $today_record)
+                                <div class="-my-8 divide-y-2 divide-gray-800">
+                                    <div class="py-8 flex flex-wrap md:flex-nowrap">
+                                        <div class="md:flex-grow">
+                                            <h2 class="text-2xl font-medium text-white title-font mb-2">
+                                                {{ $today_record->category_id }}</h2>
+                                            <p class="leading-relaxed">時間：{{ $today_record->minute }}分</p>
+                                            <p class="leading-relaxed">{{ $today_record->note }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
