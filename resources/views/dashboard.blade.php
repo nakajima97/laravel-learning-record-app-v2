@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
                         <div class="container px-5 py-6 mx-auto">
-                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">今月の総学習時間：{{ $total_study_time_this_month }}分</h1>
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">今月の総学習時間：{{ floor($total_study_time_this_month / 60) }}時間{{ $total_study_time_this_month % 60 }}分</h1>
                         </div>
                     </section>
                     <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
