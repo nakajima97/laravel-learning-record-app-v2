@@ -14,4 +14,9 @@ class Record extends Model
         'minute',
         'note'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
