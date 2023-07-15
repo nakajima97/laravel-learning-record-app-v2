@@ -7,14 +7,14 @@ use Carbon\Carbon;
 
 class CalculateTotalStudyTimeToday
 {
-  public function __invoke()
-  {
-    $today = Carbon::today();
+    public function __invoke()
+    {
+        $today = Carbon::today();
 
-    $records = Record::whereDate('created_at', $today)->get();
+        $records = Record::whereDate('created_at', $today)->get();
 
-    $time = $records->sum('minute');
+        $time = $records->sum('minute');
 
-    return $time;
-  }
+        return $time;
+    }
 }
