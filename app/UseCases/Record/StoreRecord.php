@@ -7,6 +7,7 @@ use App\Models\Record;
 class StoreRecord
 {
     /**
+     * @params \App\Models\Record $record
      * @return boolean
      */
     public function __invoke(Record $record)

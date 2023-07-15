@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Record;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class StoreRecordRequest extends FormRequest
 {
@@ -31,7 +32,7 @@ class StoreRecordRequest extends FormRequest
     }
 
     /**
-     * @return App\Models\Record
+     * @return \App\Models\Record
      */
     public function makeRecord()
     {
