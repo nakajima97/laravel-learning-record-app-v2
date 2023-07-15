@@ -9,6 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Record>
+     */
     public function Records()
     {
         return $this->hasMany(Record::class);

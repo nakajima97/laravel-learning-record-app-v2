@@ -15,6 +15,9 @@ class Record extends Model
         'note'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Category, Record>
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);

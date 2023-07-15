@@ -8,6 +8,9 @@ use App\UseCases\Record\SelectTodayRecord;
 
 class DashboardController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function index()
     {
         $select_today_record = new SelectTodayRecord();

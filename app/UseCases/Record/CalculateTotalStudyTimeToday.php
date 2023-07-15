@@ -7,6 +7,9 @@ use Carbon\Carbon;
 
 class CalculateTotalStudyTimeToday
 {
+    /**
+     * @return mixed
+     */
     public function __invoke()
     {
         $today = Carbon::today();

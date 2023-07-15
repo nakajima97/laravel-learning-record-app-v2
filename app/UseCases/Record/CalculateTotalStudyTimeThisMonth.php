@@ -7,6 +7,9 @@ use Carbon\Carbon;
 
 class CalculateTotalStudyTimeThisMonth
 {
+  /**
+   * @return mixed
+   */
     public function __invoke()
     {
         $now = Carbon::now();
