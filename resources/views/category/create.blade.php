@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="text-gray-400 bg-gray-900 body-font relative">
-                        <form action="{{ route('records.store') }}" method="POST">
+                        <form action="{{ route('categories.store') }}" method="POST">
                             @csrf
                             <div class="container px-5 py-24 mx-auto">
                                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
