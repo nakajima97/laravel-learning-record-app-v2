@@ -9,6 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<Record>
      */
