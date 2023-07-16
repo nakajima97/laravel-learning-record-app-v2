@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('records.create')" :active="request()->routeIs('records.create')">
+                        学習記録を付ける
+                    </x-nav-link>
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                        カテゴリー一覧
+                    </x-nav-link>
                 </div>
             </div>
 
