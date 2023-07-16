@@ -28,7 +28,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreCategoryRequest $request)
     {
