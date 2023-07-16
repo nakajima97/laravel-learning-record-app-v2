@@ -16,4 +16,12 @@ class CategoryController extends Controller
         $categories = $get_category();
         return view('category.index', ['categories' => $categories]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function create()
+    {
+        return view('category.create');
+    }
 }
