@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRecordRequest;
+use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Record\StoreRecord;
 
 class RecordController extends Controller
@@ -12,7 +13,10 @@ class RecordController extends Controller
      */
     public function create()
     {
-        return view('record.create');
+        $get_category_list = new GetCategoryList();
+        $records = $get_category_list();
+
+        return view('record.create')->with('records', $records);
     }
 
     /**

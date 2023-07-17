@@ -19,8 +19,12 @@
                                             <div class="relative">
                                                 <label for="category_id"
                                                     class="leading-7 text-sm text-gray-400">カテゴリー</label>
-                                                <input type="text" id="category_id" name="category_id"
+                                                <select id="category_id" name="category_id"
                                                     class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                    @foreach ($records as $record)
+                                                        <option value="{{ $record->id }}">{{ $record->name }}</option>
+                                                    @endforeach
+                                                </select>
                                                 <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
                                             </div>
                                         </div>
