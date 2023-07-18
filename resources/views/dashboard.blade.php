@@ -40,6 +40,7 @@
                                         <div class="md:flex-grow">
                                             <h2 class="text-2xl font-medium text-white title-font mb-2">
                                                 {{ $today_record->category->name }}</h2>
+                                            <p class="leading-relaxed">{{ $today_record->created_at }}</p>
                                             <p class="leading-relaxed">時間：{{ $today_record->minute }}分</p>
                                             <p class="leading-relaxed">{{ $today_record->note }}</p>
                                         </div>
