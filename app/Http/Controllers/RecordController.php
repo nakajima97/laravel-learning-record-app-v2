@@ -29,6 +29,6 @@ class RecordController extends Controller
         $store_record = new StoreRecord();
         $store_record($record);
 
-        return redirect()->route('records.create');
+        return redirect()->route('dashboard');
     }
 }
