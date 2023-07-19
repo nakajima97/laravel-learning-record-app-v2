@@ -7,7 +7,7 @@ use App\Models\Category;
 class GetCategoryList
 {
     /**
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category>
      */
     public function __invoke()
     {
