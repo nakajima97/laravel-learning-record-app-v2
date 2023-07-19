@@ -6,7 +6,9 @@ use App\Models\Category;
 
 class GetCategoryList
 {
-    /* @phpstan-ignore-next-line */
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category>
+     */
     public function __invoke()
     {
         return Category::all();
