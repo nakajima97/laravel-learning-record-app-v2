@@ -6,7 +6,9 @@ use App\Models\Category;
 
 class GetCategoryList
 {
-    /* @phpstan-ignore-next-line */
+    /**
+     * @return mixed
+     */
     public function __invoke()
     {
         return Category::all();
