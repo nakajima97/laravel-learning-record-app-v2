@@ -1,5 +1,11 @@
 <div id="stopwathModal" tabindex="-1" aria-hidden="true" x-show="showModal"
-    class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    x-data="{
+        start: 0,
+        current: 0,
+        stop: null,
+        interval: null
+    }">
     <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" @click.away="showModal = false">
@@ -21,16 +27,32 @@
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
-
+                <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <span x-text="getMinute(current, start)"></span>分<span x-text="getSecond(current, start)" /></span>秒
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="stopwathModal" type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                    accept</button>
-                <button data-modal-hide="stopwathModal" type="button"
-                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    x-show="!start"
+                    @click="
+                        start = Date.now()
+                        current = start
+                        interval = setInterval(() => {current = Date.now()}, 1000)">
+                    Start</button>
+                <button type="button"
+                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                    x-show="start"
+                    @click="
+                        clearInterval(interval)">
+                    Finish
+                </button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    const getMinute = (current, start) => Math.trunc(((current - start) / 1000) / 60);
+    const getSecond = (current, start) => Math.trunc(((current - start) / 1000) % 60);
+</script>
