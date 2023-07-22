@@ -45,7 +45,7 @@
                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                     x-show="start"
                     @click="
-                        clearInterval(interval)">
+                        clearInterval(interval);setMinuteInput(current, start);showModal=false">
                     Finish
                 </button>
             </div>
@@ -55,4 +55,8 @@
 <script>
     const getMinute = (current, start) => Math.trunc(((current - start) / 1000) / 60);
     const getSecond = (current, start) => Math.trunc(((current - start) / 1000) % 60);
+
+    const setMinuteInput = (current, start) => {
+        document.querySelector('#{{ $timeInputId }}').value = Math.trunc(((current - start) / 1000) / 60);
+    }
 </script>

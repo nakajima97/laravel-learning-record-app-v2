@@ -66,6 +66,6 @@
                 </div>
             </div>
         </div>
-        <x-stopwatch.modal />
+        <x-stopwatch.modal time-input-id="minute"/>
     </div>
 </x-app-layout>
