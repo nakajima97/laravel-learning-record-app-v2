@@ -8,6 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 pb-0 text-gray-900 dark:text-gray-100">
+                    <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
+                        <div class="p-4 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">学習記録を付ける</button>
+                        </div>
+                    </section>
+                </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
                         <div class="container px-5 py-6 mx-auto">
