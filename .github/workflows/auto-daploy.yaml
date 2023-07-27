@@ -1,0 +1,29 @@
+name: auto-deploy
+on:
+  pull_request:
+    # branches:
+    #   - main
+    # types: [closed]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      USER: ${{ secrets.USER }}
+      HOST: ${{ secrets.HOST }}
+      ASSETS_BUILD_FILE_PATH: ${{ secrets.ASSETS_BUILD_FILE_PATH }}
+      LARAVEL_DIR: ${{ secrets.LARAVEL_DIR }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: init
+        run: |
+          npm install
+          npm run build
+          echo "$SECRET_KEY" > secret_key
+          chmod 600 secret_key
+      - name: build & scp
+        run: |
+          scp -r -o "StrictHostKeyChecking=no" -i secret_key ./public/build $USER@$HOST:$ASSETS_BUILD_FILE_PATH
+      - name: ssh
+        run: |
+          ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd $LARAVEL_DIR && ls -al ./.github/workflows/ && chmod +x ./.github/workflows/deploy.sh && ./.github/workflows/deploy.sh"
