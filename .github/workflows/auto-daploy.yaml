@@ -32,4 +32,6 @@ jobs:
           echo ---
           ls -al ./.github/workflows/
           echo ---
+          cat ./.github/workflows/deploy.sh
+          echo ---
           ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd $LARAVEL_DIR && ls -al ./.github/workflows/ && chmod +x ./.github/workflows/deploy.sh && ./.github/workflows/deploy.sh"
