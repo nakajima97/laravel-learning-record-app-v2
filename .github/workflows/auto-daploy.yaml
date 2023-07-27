@@ -21,6 +21,7 @@ jobs:
           npm run build
           echo "$SECRET_KEY" > secret_key
           chmod 600 secret_key
+          ls -l secret_key
       - name: build & scp
         run: |
           scp -r -o "StrictHostKeyChecking=no" -i secret_key ./public/build $USER@$HOST:$ASSETS_BUILD_FILE_PATH
