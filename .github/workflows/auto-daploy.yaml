@@ -26,5 +26,5 @@ jobs:
           scp -r -o "StrictHostKeyChecking=no" -i secret_key ./public/build $USER@$HOST:$ASSETS_BUILD_FILE_PATH
       - name: ssh
         run: |
-          ls -l
+          ls -al
           ssh -oStrictHostKeyChecking=no ${USER}@${HOST} -i secret_key "cd $LARAVEL_DIR && ls -al ./.github/workflows/ && chmod +x ./.github/workflows/deploy.sh && ./.github/workflows/deploy.sh"
