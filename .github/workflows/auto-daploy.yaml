@@ -1,8 +1,9 @@
 name: auto-deploy
 on:
-  branches:
-    - main
-  types: [closed]
+  pull_request:
+    branches:
+      - main
+    types: [closed]
 jobs:
   deploy:
     runs-on: ubuntu-latest
