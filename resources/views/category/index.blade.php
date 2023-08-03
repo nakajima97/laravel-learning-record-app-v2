@@ -16,13 +16,11 @@
                         </div>
                     </section>
                     <section class="text-gray-400 bg-gray-900 body-font overflow-hidden p-6">
-                        {{-- カードで表示 --}}
                         @foreach ($categories as $category)
                             <div class="mb-2">
                                 <x-category.category-item :name="$category->name" />
                             </div>
                         @endforeach
-                        {{-- ここまで --}}
                     </section>
                 </div>
             </div>
