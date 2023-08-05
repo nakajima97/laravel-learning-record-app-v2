@@ -8,6 +8,7 @@ use Carbon\Carbon;
 class CalculateTotalStudyTimeToday
 {
     /**
+     * @param int|string|null $user_id
      * @return mixed
      */
     public function __invoke($user_id)

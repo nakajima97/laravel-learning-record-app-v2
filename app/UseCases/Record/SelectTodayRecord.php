@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class SelectTodayRecord
 {
     /**
+     * @param int|string|null $user_id
      * @return mixed
      */
     public function __invoke($user_id)
