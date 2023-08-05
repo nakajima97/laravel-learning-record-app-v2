@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Record;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class StoreRecordRequest extends FormRequest
@@ -36,6 +37,9 @@ class StoreRecordRequest extends FormRequest
      */
     public function makeRecord()
     {
-        return new Record($this->validated());
+        $record = new Record($this->validated());
+        $record->user_id = Auth::id();
+
+        return $record;
     }
 }
