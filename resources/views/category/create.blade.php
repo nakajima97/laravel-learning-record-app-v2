@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <section class="text-gray-400 bg-gray-900 body-font relative">
+                    <section class="dark:text-gray-400 dark:bg-gray-900 body-font relative">
                         <form action="{{ route('categories.store') }}" method="POST">
                             @csrf
                             <div class="container px-5 py-24 mx-auto">
@@ -20,7 +20,7 @@
                                                 <label for="name"
                                                     class="leading-7 text-sm text-gray-400">カテゴリー名</label>
                                                 <input type="text" id="name" name="name"
-                                                    class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                    class="w-full dark:bg-gray-800 bg-opacity-40 rounded border dark:border-gray-700 dark:focus:border-indigo-500 dark:focus:bg-gray-900 focus:ring-2 dark:focus:ring-indigo-900 text-base outline-none dark:text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                             </div>
                                         </div>
