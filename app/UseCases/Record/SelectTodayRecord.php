@@ -16,6 +16,8 @@ class SelectTodayRecord
     {
         $today = Carbon::today();
 
-        return Record::whereDate('created_at', $today)->where('user_id', $user_id)->get();
+        return Record::whereDate('created_at', $today)->where('user_id', $user_id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
     }
 }
