@@ -55,7 +55,7 @@
             "./vendor/bin/phpstan analyse"
         ],
         "php-cs-fixer": [
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix app"
+            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix"
         ]
     },
     "extra": {
