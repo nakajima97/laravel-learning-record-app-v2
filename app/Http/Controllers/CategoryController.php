@@ -37,7 +37,7 @@ class CategoryController extends Controller
     {
         $category = $request->makeCategory();
 
-        $category->user_id = Auth::id();
+        $category['user_id'] = Auth::id();
 
         $store_category = new StoreCategory();
         $store_category($category);
