@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\Request;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -33,6 +34,8 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category = $request->makeCategory();
+
+        $category->user_id = Auth::id();
 
         $store_category = new StoreCategory();
         $store_category($category);
