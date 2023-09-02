@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->text(),
             'user_id' => User::inRandomOrder()->first()->id
         ];
     }
