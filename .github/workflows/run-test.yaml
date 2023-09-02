@@ -1,0 +1,33 @@
+name: RunTest
+on:
+  pull_request:
+
+jobs:
+  phpstan:
+    # Ubuntuの最新版を利用する
+    runs-on: ubuntu-latest
+    steps:
+      # リポジトリの最新ファイル1世代分だけをチェックアウト
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # PHP環境のセットアップ
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          # PHPのバージョンを8.2に指定
+          php-version: '8.2'
+          tools: composer, cs2pr
+          coverage: none
+
+      - name: Composer install
+        run: composer install
+
+      - name: Setup Laravel
+        run: |
+          npm i
+          npm run build
+
+      - name: Run Test
+        run: php artisan test
