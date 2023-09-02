@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRecordRequest;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Record\StoreRecord;
+use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
 {
@@ -13,8 +14,10 @@ class RecordController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::id();
+
         $get_category_list = new GetCategoryList();
-        $records = $get_category_list();
+        $records = $get_category_list($user_id);
 
         return view('record.create')->with('records', $records);
     }
