@@ -42,7 +42,7 @@ class CategoryTest extends TestCase
 
         $response->assertStatus(200);
 
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $response->assertSeeText($category->name);
         }
 

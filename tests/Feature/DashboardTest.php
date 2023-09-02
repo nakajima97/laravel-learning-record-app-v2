@@ -47,7 +47,7 @@ class DashboardTest extends TestCase
 
         $response->assertStatus(200);
 
-        foreach($records as $record) {
+        foreach ($records as $record) {
             $response->assertSeeText($record->category->name);
             $response->assertSeeText($record->minute);
             $response->assertSeeText($record->note);
@@ -72,8 +72,8 @@ class DashboardTest extends TestCase
 
         $total_minute = $records->sum('minute');
 
-        $response->assertSeeText(floor($total_minute / 60) . "時間");
-        $response->assertSeeText($total_minute % 60 . "分");
+        $response->assertSeeText(floor($total_minute / 60) . '時間');
+        $response->assertSeeText($total_minute % 60 . '分');
     }
 
     public function test_今月の総学習時間が表示されている(): void
@@ -94,8 +94,8 @@ class DashboardTest extends TestCase
 
         $total_minute = $records->sum('minute') + $yesterday_record->minute;
 
-        $response->assertSeeText(floor($total_minute / 60) . "時間");
-        $response->assertSeeText($total_minute % 60 . "分");
+        $response->assertSeeText(floor($total_minute / 60) . '時間');
+        $response->assertSeeText($total_minute % 60 . '分');
     }
 
     /**
