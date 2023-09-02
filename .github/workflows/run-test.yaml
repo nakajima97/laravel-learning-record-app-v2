@@ -24,5 +24,8 @@ jobs:
       - name: Composer install
         run: composer install
 
+      - name: Setup Laravel
+        run: npm run build
+
       - name: Run Test
         run: php artisan test
