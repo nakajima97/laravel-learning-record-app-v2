@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>>
+                        </form>
                     </section>
                 </div>
             </div>
