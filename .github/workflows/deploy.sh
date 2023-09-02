@@ -9,3 +9,6 @@ php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
+
+# migrationの実行
+php artisan migrate --force
