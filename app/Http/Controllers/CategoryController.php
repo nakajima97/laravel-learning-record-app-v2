@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $user_id = Auth::id();
+
         $get_category = new GetCategoryList();
-        $categories = $get_category();
+        $categories = $get_category($user_id);
         return view('category.index', ['categories' => $categories]);
     }
 
