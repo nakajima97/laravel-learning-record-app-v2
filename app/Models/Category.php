@@ -14,6 +14,12 @@ class Category extends Model
         'user_id'
     ];
 
+    public function archive()
+    {
+        $this->is_archive = true;
+        $this->save();
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<Record>
      */

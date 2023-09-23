@@ -13,6 +13,12 @@
                       <div class="p-4 w-full">
                           <p>カテゴリー名：{{ $category->name }}</p>
                       </div>
+                      <div>
+                        <form action="{{ route('categories.archive', ['id' => $category->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">アーカイブする</button>
+                        </form>
+                      </div>
                   </section>
               </div>
           </div>

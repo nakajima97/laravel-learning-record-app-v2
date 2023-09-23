@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\UseCases\Category\ArchiveCategory;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
 use App\UseCases\Category\FindCategory;
@@ -59,5 +60,17 @@ class CategoryController extends Controller
         }
 
         return view('category.show', ['category' => $category]);
+    }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function archive($id)
+    {
+        $archive_category = new ArchiveCategory();
+        $archive_category($id);
+
+        return redirect()->route('categories.index');
     }
 }
