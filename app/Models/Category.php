@@ -15,6 +15,15 @@ class Category extends Model
     ];
 
     /**
+     * @return void
+     */
+    public function archive()
+    {
+        $this->is_archive = true;
+        $this->save();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<Record>
      */
     public function Records()

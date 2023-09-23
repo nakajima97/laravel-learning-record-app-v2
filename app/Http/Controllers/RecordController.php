@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRecordRequest;
+use App\Models\Category;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Record\StoreRecord;
 use Illuminate\Support\Facades\Auth;

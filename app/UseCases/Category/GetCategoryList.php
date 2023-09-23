@@ -12,6 +12,6 @@ class GetCategoryList
      */
     public function __invoke($user_id)
     {
-        return Category::where('user_id', $user_id)->get();
+        return Category::where('user_id', $user_id)->where('is_archive', false)->get();
     }
 }

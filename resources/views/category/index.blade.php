@@ -18,7 +18,7 @@
                     <section class="bg-gray-100 dark:text-gray-400 dark:bg-gray-900 body-font overflow-hidden p-6">
                         @foreach ($categories as $category)
                             <div class="mb-2">
-                                <x-category.category-item :name="$category->name" />
+                                <x-category.category-item :name="$category->name" :id="$category->id"/>
                             </div>
                         @endforeach
                     </section>

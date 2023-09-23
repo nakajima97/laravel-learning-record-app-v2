@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
-use Illuminate\Http\Request;
+use App\UseCases\Category\ArchiveCategory;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
+use App\UseCases\Category\FindCategory;
 use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
@@ -41,6 +42,34 @@ class CategoryController extends Controller
 
         $store_category = new StoreCategory();
         $store_category($category);
+
+        return redirect()->route('categories.index');
+    }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function show($id)
+    {
+        $find_category = new FindCategory();
+        $category = $find_category($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        return view('category.show', ['category' => $category]);
+    }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function archive($id)
+    {
+        $archive_category = new ArchiveCategory();
+        $archive_category($id);
 
         return redirect()->route('categories.index');
     }
