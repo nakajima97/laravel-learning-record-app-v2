@@ -8,7 +8,7 @@ class FindCategory
 {
     /**
      * @param int|string|null $id
-     * @return \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category>
+     * @return \App\Models\Category|null
      */
     public function __invoke($id)
     {

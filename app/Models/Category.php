@@ -14,6 +14,9 @@ class Category extends Model
         'user_id'
     ];
 
+    /**
+     * @return void
+     */
     public function archive()
     {
         $this->is_archive = true;

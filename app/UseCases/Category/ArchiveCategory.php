@@ -8,9 +8,13 @@ class ArchiveCategory
 {
     /**
      * @param int|string|null $id
+     * @return void
      */
     public function __invoke($id)
     {
-        Category::find($id)->Archive();
+        $category = Category::find($id);
+        if ($category !== null) {
+            $category->Archive();
+        }
     }
 }

@@ -64,7 +64,7 @@ class CategoryController extends Controller
 
     /**
      * @param integer $id
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function archive($id)
     {
