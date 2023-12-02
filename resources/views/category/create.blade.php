@@ -5,12 +5,12 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12" x-data="{ isDisabled: false }">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="dark:text-gray-400 dark:bg-gray-900 body-font relative">
-                        <form action="{{ route('categories.store') }}" method="POST">
+                        <form action="{{ route('categories.store') }}" method="POST" x-on:submit="isDisabled = true">
                             @csrf
                             <div class="container px-5 py-24 mx-auto">
                                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -26,7 +26,9 @@
                                         </div>
                                         <div class="p-2 w-full">
                                             <button
-                                                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">追加</button>
+                                                type="submit"
+                                                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                                                x-bind:disabled="isDisabled">追加</button>
                                         </div>
                                     </div>
                                 </div>
