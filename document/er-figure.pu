@@ -1,0 +1,43 @@
+@startuml er-figure
+hide circle
+skinparam linetype ortho
+
+entity "users" as users {
+  * <<PK>> id
+  --
+  name
+  email
+  email_verified_at
+  password
+  remember_token
+  created_at
+  updated_at
+}
+
+entity "categories" as categories {
+    * <<PK>> id
+    --
+    name
+    user_id
+    is_archive
+    is_created
+    is_updated
+}
+
+entity "records" as records {
+    * <<PK>> id
+    --
+    category_id
+    user_id
+    minute
+    note
+    is_created
+    is_updated
+}
+
+users ||--o{ categories
+users ||--o{ records
+categories ||--o{ records
+
+
+@enduml
