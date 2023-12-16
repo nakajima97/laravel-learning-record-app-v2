@@ -28,10 +28,10 @@ php cs fixerのインストール
 - Larastan
 
 # Larastanの実行
-'./vendor/bin/phpstan analyse'
+`./vendor/bin/phpstan analyse`
 
 # PHP CS Fixerの実行
-'tools/php-cs-fixer/vendor/bin/php-cs-fixer fix app'
+`tools/php-cs-fixer/vendor/bin/php-cs-fixer fix app`
 
 # ドキュメント
 ## ER図
