@@ -32,3 +32,8 @@ php cs fixerのインストール
 
 # PHP CS Fixerの実行
 'tools/php-cs-fixer/vendor/bin/php-cs-fixer fix app'
+
+# ドキュメント
+## ER図
+PlantUMLを使用して作成  
+documents/er-figure  
