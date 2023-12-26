@@ -64,4 +64,20 @@ class CategoryTest extends TestCase
         $response->assertStatus(302);
         $this->assertDatabaseHas('categories', $input);
     }
+
+    public function test_カテゴリーのアーカイブが可能(): void
+    {
+        $user = User::factory()->create();
+
+        // アーカイブするためのカテゴリーを作成
+        $category = Category::factory()->create();
+        // 追加したときはアーカイブされていないことを検証
+        $this->assertDatabaseHas('categories', ['id' => $category->id, 'is_archive' => false]);
+
+        $response = $this->actingAs($user)
+            ->post('/categories/archive/' . $category->id);
+
+        $response->assertStatus(302);
+        $this->assertDatabaseHas('categories', ['id' => $category->id, 'is_archive' => true]);
+    }
 }
