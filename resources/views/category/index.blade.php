@@ -40,7 +40,11 @@
                     </section>
                     <section class="bg-gray-100 dark:text-gray-400 dark:bg-gray-900 body-font overflow-hidden p-6"
                         x-show='open === 2'>
-                        アーカイブ済み一覧
+                        @foreach ($archive_categories as $archive_categoriy)
+                            <div class="mb-2">
+                                <x-category.category-item :name="$archive_categoriy->name" :id="$archive_categoriy->id" />
+                            </div>
+                        @endforeach
                     </section>
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\UseCases\Category\ArchiveCategory;
+use App\UseCases\Category\GetArchivedCategoryList;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
 use App\UseCases\Category\FindCategory;
@@ -20,7 +21,11 @@ class CategoryController extends Controller
 
         $get_category = new GetCategoryList();
         $categories = $get_category($user_id);
-        return view('category.index', ['categories' => $categories]);
+
+        $get_archived_category = new GetArchivedCategoryList();
+        $archive_categories = $get_archived_category($user_id);
+
+        return view('category.index', ['categories' => $categories, 'archive_categories' => $archive_categories]);
     }
 
     /**
