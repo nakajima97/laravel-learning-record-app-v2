@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('category_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')
+                ->unique('category_orders_user_id_unique_foreign');
             $table->json('category_order');
             $table->timestamps();
 
-            $table->foreign('user_id')
+            $table->foreign('user_id', 'category_orders_user_id_unique_foreign')
                 ->references('id')
                 ->on('users');
         });
