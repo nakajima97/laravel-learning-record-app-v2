@@ -6,9 +6,18 @@ const onDragStart = (event) => {
 
 // ドロップしたとき
 const onDrop = (event) => {
-    event.currentTarget.after(
-        document.getElementById(event.dataTransfer.getData("text"))
-    );
+    const items = [...document.querySelectorAll(".drag-target")];
+    if (items.indexOf(event.currentTarget) === 0) {
+        // リストの先頭に追加する
+        event.currentTarget.before(
+            document.getElementById(event.dataTransfer.getData("text"))
+        );
+    } else {
+        // 対象の後ろに追加する
+        event.currentTarget.after(
+            document.getElementById(event.dataTransfer.getData("text"))
+        );
+    }
 };
 
 // ドロップ対象に入ったとき
