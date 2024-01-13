@@ -35,16 +35,16 @@ entity "records" as records {
     is_updated
 }
 
-entity "category_order" as category_order {
+entity "category_orders" as category_orders {
     * <<PK>> id
     --
     user_id
-    category_order
+    category_orders
 }
 
 users ||--o{ categories
 users ||--o{ records
-users ||--o{ category_order
+users ||--o{ category_orders
 categories ||--o{ records
 
 @enduml
