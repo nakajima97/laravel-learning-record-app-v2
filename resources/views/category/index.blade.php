@@ -33,17 +33,17 @@
                     <section class="bg-gray-100 dark:text-gray-400 dark:bg-gray-900 body-font overflow-hidden p-6"
                         x-show='open === 1'>
                         @foreach ($categories as $category)
-                            <div class="mb-2">
+                            <ul class="mb-2 ">
                                 <x-category.category-item :name="$category->name" :id="$category->id" />
-                            </div>
+                            </ul>
                         @endforeach
                     </section>
                     <section class="bg-gray-100 dark:text-gray-400 dark:bg-gray-900 body-font overflow-hidden p-6"
                         x-show='open === 2'>
                         @foreach ($archive_categories as $archive_categoriy)
-                            <div class="mb-2">
+                            <ul class="mb-2">
                                 <x-category.category-item :name="$archive_categoriy->name" :id="$archive_categoriy->id" />
-                            </div>
+                            </ul>
                         @endforeach
                     </section>
                 </div>
