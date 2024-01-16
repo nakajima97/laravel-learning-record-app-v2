@@ -20,7 +20,7 @@ const onDrop = (event) => {
     }
 
     const category_list = [...document.querySelectorAll(".drag-target")].map(
-        (element) => element.id
+        (element) => Number(element.id)
     );
     fetch("/api/category-order", {
         method: "PATCH",
