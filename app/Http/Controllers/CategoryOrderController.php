@@ -10,6 +10,10 @@ use function Psy\debug;
 
 class CategoryOrderController extends Controller
 {
+    /**
+     * @param \App\Http\Requests\UpdateCategoryOrderRequest $request
+     * @return void
+     */
     public function update(UpdateCategoryOrderRequest $request)
     {
         $category_order = $request->makeCategoryOrder();
