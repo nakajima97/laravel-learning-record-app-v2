@@ -51,3 +51,5 @@
         </div>
     </div>
 </x-app-layout>
+
+@vite(['resources/js/drag-move.js']);
