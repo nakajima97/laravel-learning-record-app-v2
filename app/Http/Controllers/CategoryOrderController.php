@@ -19,6 +19,6 @@ class CategoryOrderController extends Controller
         $category_order = $request->makeCategoryOrder();
 
         $update_category_order = new UpdateCategoryOrder();
-        $update_category_order($category_order['user_id'], $category_order['category_order']);
+        $update_category_order($category_order->user_id, $category_order->category_order);
     }
 }

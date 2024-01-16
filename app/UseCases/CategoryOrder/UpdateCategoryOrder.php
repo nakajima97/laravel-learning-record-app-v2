@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 class UpdateCategoryOrder
 {
     /**
-     * @param array<int> $list
+     * @param int $user_id
+     * @param int[] $order
      * @return void
      */
     public function __invoke($user_id, $order)
