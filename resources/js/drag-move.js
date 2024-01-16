@@ -18,6 +18,23 @@ const onDrop = (event) => {
             document.getElementById(event.dataTransfer.getData("text"))
         );
     }
+
+    const category_list = [...document.querySelectorAll(".drag-target")].map(
+        (element) => element.id
+    );
+    fetch("/api/category-order", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify({
+            user_id: 1,
+            category_order: category_list,
+        }),
+    })
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
 };
 
 // ドロップ対象に入ったとき
