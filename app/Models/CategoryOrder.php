@@ -20,7 +20,7 @@ class CategoryOrder extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, Record>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, CategoryOrder>
      */
     public function user(): BelongsTo
     {
