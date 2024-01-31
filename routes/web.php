@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CategoryArchiveController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('categories', CategoryController::class);
     Route::post('/categories/archive/{id}', [CategoryController::class, 'archive'])->name('categories.archive');
+    Route::delete('/categories/archive/{id}', [CategoryArchiveController::class, 'delete'])->name('categories.archive.destroy');
 
     Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
     Route::post('/records', [RecordController::class, 'store'])->name('records.store');

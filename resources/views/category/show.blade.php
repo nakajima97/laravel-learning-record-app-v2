@@ -24,6 +24,13 @@
                                     <button type="submit"
                                         class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">アーカイブする</button>
                                 </form>
+                                @else
+                                <form action="{{ route('categories.archive.destroy', ['id' => $category->id]) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">アーカイブ解除する</button>
+                                </form>
                             @endif
                         </div>
                     </section>
