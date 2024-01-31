@@ -24,6 +24,17 @@ class Category extends Model
     }
 
     /**
+     * アーカイブの解除を行うメソッド
+     *
+     * @return void
+     */
+    public function unarchive()
+    {
+        $this->is_archive = false;
+        $this->save();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<Record>
      */
     public function Records()
