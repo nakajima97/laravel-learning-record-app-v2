@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::resource('categories', CategoryController::class);
-    Route::post('/categories/archive/{id}', [CategoryController::class, 'archive'])->name('categories.archive');
+    Route::post('/categories/archive/{id}', [CategoryArchiveController::class, 'store'])->name('categories.archive.store');
     Route::delete('/categories/archive/{id}', [CategoryArchiveController::class, 'delete'])->name('categories.archive.destroy');
 
     Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
