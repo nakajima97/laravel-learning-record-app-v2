@@ -19,7 +19,7 @@
                         </div>
                         <div>
                             @if (!$category->is_archive)
-                                <form action="{{ route('categories.archive', ['id' => $category->id]) }}" method="POST">
+                                <form action="{{ route('categories.archive.store', ['id' => $category->id]) }}" method="POST">
                                     @csrf
                                     <button type="submit"
                                         class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">アーカイブする</button>
