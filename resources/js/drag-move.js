@@ -22,19 +22,38 @@ const onDrop = (event) => {
     const category_list = [...document.querySelectorAll(".drag-target")].map(
         (element) => Number(element.id)
     );
-    fetch("/api/category-order", {
-        method: "PATCH",
+    const csrfToken = document.head.querySelector(
+        'meta[name="csrf-token"]'
+    ).content;
+
+    // ユーザIDを取得
+    fetch("api/user", {
+        method: "GET",
+        credentials: "include",
         headers: {
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": csrfToken,
         },
-        body: JSON.stringify({
-            user_id: 1,
-            category_order: category_list,
-        }),
     })
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error));
+        .then((response) => response.json())
+        .then((data) => data.id)
+        // 取得したユーザIDを使って並び順を保存
+        .then((userId) => {
+            fetch("/api/category-order", {
+                method: "PATCH",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": csrfToken,
+                },
+                body: JSON.stringify({
+                    user_id: userId,
+                    category_order: category_list,
+                }),
+            });
+        });
 };
 
 // ドロップ対象に入ったとき
