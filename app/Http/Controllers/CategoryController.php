@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\Models\User;
 use App\UseCases\Category\GetArchivedCategoryList;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
@@ -41,11 +42,12 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category = $request->makeCategory();
+        $user_id = Auth::id();
 
-        $category['user_id'] = Auth::id();
+        $category['user_id'] = $user_id;
 
         $store_category = new StoreCategory();
-        $store_category($category);
+        $store_category($category, $user_id);
 
         return redirect()->route('categories.index');
     }
