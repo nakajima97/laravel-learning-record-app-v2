@@ -13,7 +13,7 @@ class StoreCategory
     public function __invoke(Category $category, int $user_id)
     {
         // トランザクションを開始
-        $result = \DB::transaction(function() use ($category, $user_id) {
+        $result = \DB::transaction(function () use ($category, $user_id) {
             // カテゴリーを保存
             $category_save_result = $category->save();
             if (!$category_save_result) {
