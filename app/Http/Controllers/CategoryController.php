@@ -42,7 +42,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category = $request->makeCategory();
-        $user_id = Auth::id();
+        $user_id = (int) Auth::id();
 
         $category['user_id'] = $user_id;
 
