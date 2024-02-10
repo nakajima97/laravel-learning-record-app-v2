@@ -6,6 +6,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\CategoryOrder;
+
+use function PHPUnit\Framework\assertEquals;
 
 class CategoryTest extends TestCase
 {
@@ -63,6 +66,37 @@ class CategoryTest extends TestCase
 
         $response->assertStatus(302);
         $this->assertDatabaseHas('categories', $input);
+    }
+
+    public function test_カテゴリーを追加した際に末尾に追加される(): void
+    {
+        $user = User::factory()->create();
+
+        $input1 = [
+            'name' => 'テストカテゴリー1',
+            'user_id' => $user->id
+        ];
+
+        $response1 = $this->actingAs($user)
+            ->post('/categories', $input1);
+
+        $response1->assertStatus(302);
+
+        $input2 = [
+            'name' => 'テストカテゴリー2',
+            'user_id' => $user->id
+        ];
+
+        $response2 = $this->actingAs($user)
+            ->post('/categories', $input2);
+
+        $response2->assertStatus(302);
+
+        $test_category_1 = Category::where('name', 'テストカテゴリー1')->first();
+        $test_category_2 = Category::where('name', 'テストカテゴリー2')->first();
+        $category_order = CategoryOrder::where('user_id', $user->id)->first();
+
+        assertEquals([$test_category_1->id, $test_category_2->id], $category_order->category_order);
     }
 
     public function test_カテゴリーのアーカイブが可能(): void
