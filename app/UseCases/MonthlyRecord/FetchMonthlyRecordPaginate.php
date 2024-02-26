@@ -11,6 +11,7 @@ class FetchMonthlyRecordPaginate
      *
      * @param int $user_id
      * @param int $paginate_num Optional
+     * @return mixed
      */
     public function __invoke($user_id, $paginate_num = 10)
     {
