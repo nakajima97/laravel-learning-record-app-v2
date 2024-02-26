@@ -1,10 +1,10 @@
 <?php
 
-namespace App\UseCases\RecordMonthly;
+namespace App\UseCases\MonthlyRecord;
 
 use App\Models\Record;
 
-class FetchRecordMonthlyPaginate
+class FetchMonthlyRecordPaginate
 {
   /**
    * 月ごとの総学習時間をページネーション付きで取得する

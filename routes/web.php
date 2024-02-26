@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CategoryArchiveController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RecordMonthlyController;
+use App\Http\Controllers\MonthlyRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
     Route::post('/records', [RecordController::class, 'store'])->name('records.store');
 
-    Route::get('/records/monthly', [RecordMonthlyController::class, 'index'])->name('records.monthly');
+    Route::get('/records/monthly', [MonthlyRecordController::class, 'index'])->name('records.monthly');
 });
 
 Route::middleware('guest')->group(function () {
