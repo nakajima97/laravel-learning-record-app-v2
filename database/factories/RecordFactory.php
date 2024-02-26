@@ -20,7 +20,8 @@ class RecordFactory extends Factory
         return [
             'category_id' => Category::inRandomOrder()->first()->id,
             'minute' => fake()->numberBetween(1, 120),
-            'note' => fake()->sentence()
+            'note' => fake()->sentence(),
+            'created_at' => fake()->dateTimeBetween('-12 month', 'now'),
         ];
     }
 }
