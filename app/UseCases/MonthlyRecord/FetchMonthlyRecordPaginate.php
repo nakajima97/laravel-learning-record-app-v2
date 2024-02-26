@@ -15,9 +15,11 @@ class FetchMonthlyRecordPaginate
      */
     public function __invoke($user_id, $paginate_num = 10)
     {
-        $monthly_record = Record::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, SUM(minute) as total_time')
+        $monthly_record = Record::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(minute) as total_time')
           ->where('user_id', $user_id)
-          ->groupBy('month')
+          ->groupBy('year', 'month')
+          ->orderBy('year', 'desc')
+          ->orderBy('month', 'desc')
           ->paginate($paginate_num);
 
         return $monthly_record;

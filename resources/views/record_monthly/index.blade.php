@@ -12,7 +12,7 @@
                 <ul>
                   @foreach ($monthly_records as $record)
                     <li>
-                      {{ $record->month }} {{ floor($record->total_time / 60) }}時間{{ $record->total_time % 60 }}分
+                      {{ $record->year }}年{{ $record->month }}月 {{ floor($record->total_time / 60) }}時間{{ $record->total_time % 60 }}分
                     </li>
                   @endforeach
                 </ul>
