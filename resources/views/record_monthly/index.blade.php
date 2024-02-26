@@ -11,7 +11,9 @@
               <div class="p-6 text-gray-900 dark:text-gray-100">
                 <ul>
                   @foreach ($monthly_records as $record)
-                    {{ $record->month }} {{ floor($record->total_time / 60) }}時間{{ $record->total_time % 60 }}分
+                    <li>
+                      {{ $record->month }} {{ floor($record->total_time / 60) }}時間{{ $record->total_time % 60 }}分
+                    </li>
                   @endforeach
                 </ul>
                 {{ $monthly_records->links() }}
