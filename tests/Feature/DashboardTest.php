@@ -106,7 +106,8 @@ class DashboardTest extends TestCase
     {
         $categories = Category::factory()->count(3)->create();
         $records = Record::factory()->count(5)->create([
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'created_at' => now()
         ]);
 
         return [$categories, $records];

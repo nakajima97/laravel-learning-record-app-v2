@@ -18,7 +18,6 @@ class RecordFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1,
             'category_id' => Category::inRandomOrder()->first()->id,
             'minute' => fake()->numberBetween(1, 120),
             'note' => fake()->sentence(),
