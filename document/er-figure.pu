@@ -20,8 +20,8 @@ entity "categories" as categories {
     name
     user_id
     is_archive
-    is_created
-    is_updated
+    created_at
+    updated_at
 }
 
 entity "records" as records {
@@ -31,8 +31,8 @@ entity "records" as records {
     user_id
     minute
     note
-    is_created
-    is_updated
+    created_at
+    updated_at
 }
 
 entity "category_orders" as category_orders {
@@ -40,6 +40,8 @@ entity "category_orders" as category_orders {
     --
     user_id
     category_orders
+    created_at
+    updated_at
 }
 
 users ||--o{ categories
