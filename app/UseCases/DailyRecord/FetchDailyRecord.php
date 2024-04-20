@@ -15,7 +15,7 @@ class FetchDailyRecord
             ->groupBy('year', 'month', 'day')
             ->orderBy('year', 'desc')
             ->orderBy('month', 'desc')
-            ->orderBy('day', 'desc')
+            ->orderBy('day', 'asc')
             ->get();
 
         return $daily_record;

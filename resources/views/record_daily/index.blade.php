@@ -20,15 +20,17 @@
                     </div>
                     <div>
                         <canvas id="myChart"></canvas>
-                        <script type="module">
+                        <script>
                             var ctx = document.getElementById("myChart");
                             new Chart(ctx, {
                                 type: 'bar',
                                 data: {
-                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                    labels: [{!! $daily_records->map(function ($daily_record) {
+                                        return '"' . $daily_record->month . '月' . $daily_record->day . '日' . '"';
+                                    })->implode(",") !!}],
                                     datasets: [{
-                                        label: '# of Votes',
-                                        data: [12, 19, 3, 5, 2, 3],
+                                        label: '時間(分)',
+                                        data: [{{ $daily_records->implode('total_time', ',') }}],
                                         borderWidth: 1
                                     }]
                                 },
