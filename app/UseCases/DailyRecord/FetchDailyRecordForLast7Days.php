@@ -5,7 +5,7 @@ namespace App\UseCases\DailyRecord;
 use Carbon\Carbon;
 use App\Models\Record;
 
-class FetchDailyRecord
+class FetchDailyRecordForLast7Days
 {
     /**
      * 直近7日間の日ごとの総学習時間を取得する
