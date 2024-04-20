@@ -15,6 +15,6 @@ class DailyRecordController extends Controller
         $fetch_daily_record = new FetchDailyRecord();
         $daily_records = $fetch_daily_record(1);
 
-        return view('record_daily.index', ["daily_records" => $daily_records]);
+        return view('record_daily.index', ['daily_records' => $daily_records]);
     }
 }
