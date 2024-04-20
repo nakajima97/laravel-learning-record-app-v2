@@ -7,6 +7,12 @@ use App\Models\Record;
 
 class FetchDailyRecord
 {
+    /**
+     * 直近7日間の日ごとの総学習時間を取得する
+     *
+     * @param int $user_id
+     * @return mixed
+     */
     public function __invoke($user_id)
     {
         $daily_record = Record::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, DAY(created_at) as day, SUM(minute) as total_time')

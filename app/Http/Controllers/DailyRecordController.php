@@ -7,6 +7,9 @@ use App\UseCases\DailyRecord\FetchDailyRecord;
 
 class DailyRecordController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function index()
     {
         $fetch_daily_record = new FetchDailyRecord();
