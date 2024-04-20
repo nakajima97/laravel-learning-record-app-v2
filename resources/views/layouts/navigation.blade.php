@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('records.monthly')" :active="request()->routeIs('records.monthly')">
                         月ごとの総学習時間
                     </x-nav-link>
+                    <x-nav-link :href="route('records.daily')" :active="request()->routeIs('records.daily')">
+                        直近7日間の学習時間
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -104,6 +107,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('records.monthly')" :active="request()->routeIs('records.monthly')">
                     月ごとの総学習時間
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('records.daily')" :active="request()->routeIs('records.daily')">
+                直近7日間の総学習時間
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

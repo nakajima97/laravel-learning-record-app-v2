@@ -14,7 +14,7 @@ class RecordSeeder extends Seeder
     public function run(): void
     {
         Record::factory()
-            ->count(50)
+            ->count(100)
             ->create(['user_id' => 1]);
     }
 }
