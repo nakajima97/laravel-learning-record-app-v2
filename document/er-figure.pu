@@ -40,6 +40,8 @@ entity "category_orders" as category_orders {
     --
     user_id
     category_orders
+    created_at
+    updated_at
 }
 
 users ||--o{ categories
