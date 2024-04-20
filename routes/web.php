@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/records/monthly', [MonthlyRecordController::class, 'index'])->name('records.monthly');
 
-    Route::get('/records/daily', [DailyRecordController::class, 'index'])->name('records.weekly');
+    Route::get('/records/daily', [DailyRecordController::class, 'index'])->name('records.daily');
 });
 
 Route::middleware('guest')->group(function () {
