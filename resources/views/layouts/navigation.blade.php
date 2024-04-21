@@ -21,9 +21,6 @@
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                         カテゴリー一覧
                     </x-nav-link>
-                    <x-nav-link :href="route('records.daily')" :active="request()->routeIs('records.daily')">
-                        直近7日間の学習時間
-                    </x-nav-link>
                     <x-nav-link :href="route('records.analysis')" :active="request()->routeIs('records.analysis')">
                         分析
                     </x-nav-link>
@@ -104,9 +101,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                     カテゴリー一覧
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('records.daily')" :active="request()->routeIs('records.daily')">
-                直近7日間の総学習時間
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
