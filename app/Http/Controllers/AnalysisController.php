@@ -14,7 +14,7 @@ class AnalysisController extends Controller
     {
         $user_id = auth()->id();
 
-        if($user_id === null) {
+        if ($user_id === null) {
             return redirect()->route('login');
         }
 
