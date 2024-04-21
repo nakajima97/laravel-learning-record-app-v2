@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('records.daily')" :active="request()->routeIs('records.daily')">
                         直近7日間の学習時間
                     </x-nav-link>
+                    <x-nav-link :href="route('records.analysis')" :active="request()->routeIs('records.analysis')">
+                        分析
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryArchiveController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MonthlyRecordController;
 use App\Http\Controllers\DailyRecordController;
+use App\Http\Controllers\AnalysisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/records/monthly', [MonthlyRecordController::class, 'index'])->name('records.monthly');
 
     Route::get('/records/daily', [DailyRecordController::class, 'index'])->name('records.daily');
+
+    Route::get('/records/analysis', [AnalysisController::class, 'index'])->name('records.analysis');
 });
 
 Route::middleware('guest')->group(function () {
