@@ -1,6 +1,5 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <x-app-layout>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             分析
@@ -48,7 +47,7 @@
                         <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight">月ごとの総学習時間</h1>
                     </div>
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <table class="table-auto text-gray-900 dark:text-gray-100">
+                        <table>
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">年月</th>
