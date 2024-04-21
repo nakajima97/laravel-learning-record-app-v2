@@ -8,15 +8,17 @@ use App\UseCases\MonthlyRecord\FetchMonthlyRecordPaginate;
 class AnalysisController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse
      */
     public function index()
     {
-        $user_id = auth()->id();
+        $auth_id = auth()->id();
 
-        if ($user_id === null) {
+        if ($auth_id === null) {
             return redirect()->route('login');
         }
+
+        $user_id = (int) $auth_id;
 
         $fetch_daily_record = new FetchDailyRecordForLast7Days();
         $daily_records = $fetch_daily_record($user_id);
