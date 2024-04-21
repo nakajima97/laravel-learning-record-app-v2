@@ -36,8 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
     Route::post('/records', [RecordController::class, 'store'])->name('records.store');
 
-    Route::get('/records/monthly', [MonthlyRecordController::class, 'index'])->name('records.monthly');
-
     Route::get('/records/daily', [DailyRecordController::class, 'index'])->name('records.daily');
 
     Route::get('/records/analysis', [AnalysisController::class, 'index'])->name('records.analysis');
