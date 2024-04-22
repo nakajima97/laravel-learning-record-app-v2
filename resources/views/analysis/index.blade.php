@@ -14,7 +14,7 @@
                         <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight">直近7日間の学習時間</h1>
                     </div>
                     <div>
-                        <canvas id="myChart"></canvas>
+                        <canvas id="myChart" class="w-full"></canvas>
                         <script>
                             var ctx = document.getElementById("myChart");
                             new Chart(ctx, {
