@@ -21,7 +21,7 @@
                                 type: 'bar',
                                 data: {
                                     labels: [{!! $daily_records->map(function ($daily_record) {
-                                            return '"' . $daily_record['month'] . '月' . $daily_record['day'] . '日' . '"';
+                                            return '"' . $daily_record['month'] . '/' . $daily_record['day'] . '"';
                                         })->implode(',') !!}],
                                     datasets: [{
                                         label: '分',
