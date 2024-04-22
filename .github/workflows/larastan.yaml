@@ -16,7 +16,6 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          # PHPのバージョンを7.4に指定
           php-version: '8.2'
           tools: composer, cs2pr
           coverage: none
