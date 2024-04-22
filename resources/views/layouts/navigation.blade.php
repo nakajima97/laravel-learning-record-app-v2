@@ -102,6 +102,9 @@
                 <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                     カテゴリー一覧
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('records.analysis')" :active="request()->route('records.analysis')">
+                    分析
+                </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
