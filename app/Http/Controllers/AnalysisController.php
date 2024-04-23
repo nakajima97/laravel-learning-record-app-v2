@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UseCases\DailyRecord\FetchDailyRecordForLast7Days;
 use App\UseCases\MonthlyRecord\FetchMonthlyRecordPaginate;
+use App\UseCases\Record\CalculateTotalLearningTime;
 
 class AnalysisController extends Controller
 {
@@ -27,6 +28,13 @@ class AnalysisController extends Controller
         $fetch_record_monthly_paginate = new FetchMonthlyRecordPaginate();
         $monthly_records = $fetch_record_monthly_paginate($user_id);
 
-        return view('analysis.index', ['daily_records' => $daily_records, 'monthly_records' => $monthly_records]);
+        $calculate_total_learning_time = new CalculateTotalLearningTime();
+        $total_learning_time = $calculate_total_learning_time($user_id);
+
+        return view('analysis.index', [
+            'daily_records' => $daily_records,
+            'monthly_records' => $monthly_records,
+            'total_learning_time' => $total_learning_time
+        ]);
     }
 }

@@ -68,6 +68,16 @@
                     </div>
                 </div>
             </div>
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-10">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight">総学習時間</h1>
+                    </div>
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <p>{{ floor($total_learning_time / 60) }}時間{{ $total_learning_time % 60 }}分</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>
