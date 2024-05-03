@@ -78,8 +78,8 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-10">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-10 h-screen">
+                <div class="p-6 text-gray-900 dark:text-gray-100 h-full">
                     <div>
                         <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight">カテゴリーごとの学習時間（Top10のみ表示）</h1>
                     </div>
@@ -106,7 +106,8 @@
                                     y: {
                                         beginAtZero: true
                                     }
-                                }
+                                },
+                                maintainAspectRatio: false
                             }
                         });
                     </script>
