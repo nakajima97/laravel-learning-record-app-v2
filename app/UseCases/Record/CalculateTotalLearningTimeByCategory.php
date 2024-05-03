@@ -7,6 +7,10 @@ use App\Models\Record;
 
 class CalculateTotalLearningTimeByCategory
 {
+    /**
+     * @param int $user_id
+     * @return mixed
+     */
     public function __invoke(int $user_id)
     {
         $records = Record::join('categories', 'records.category_id', '=', 'categories.id')
