@@ -93,9 +93,9 @@
                                         return '"' . $value->name . '"';
                                     })->implode(',') !!}],
                                 datasets: [{
-                                    label: '分',
+                                    label: '時間',
                                     data: [{!! $total_learning_time_by_category->map(function ($value) {
-                                        return '"' . $value->total_learning_time . '"';
+                                        return '"' . floor($value->total_learning_time / 60) . '"';
                                     })->implode(',') !!}],
                                     borderWidth: 1
                                 }]
