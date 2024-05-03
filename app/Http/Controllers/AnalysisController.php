@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\UseCases\DailyRecord\FetchDailyRecordForLast7Days;
 use App\UseCases\MonthlyRecord\FetchMonthlyRecordPaginate;
 use App\UseCases\Record\CalculateTotalLearningTime;
+use App\UseCases\Record\CalculateTotalLearningTimeByCategory;
+use Illuminate\Support\Facades\Log;
 
 class AnalysisController extends Controller
 {
@@ -31,10 +33,15 @@ class AnalysisController extends Controller
         $calculate_total_learning_time = new CalculateTotalLearningTime();
         $total_learning_time = $calculate_total_learning_time($user_id);
 
+        // カテゴリーごとの総学習時間を取得する
+        $calculate_total_learning_time_by_category = new CalculateTotalLearningTimeByCategory();
+        $total_learning_time_by_category = $calculate_total_learning_time_by_category($user_id);
+
         return view('analysis.index', [
             'daily_records' => $daily_records,
             'monthly_records' => $monthly_records,
-            'total_learning_time' => $total_learning_time
+            'total_learning_time' => $total_learning_time,
+            'total_learning_time_by_category' => $total_learning_time_by_category,
         ]);
     }
 }
