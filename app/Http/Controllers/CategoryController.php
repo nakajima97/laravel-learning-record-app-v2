@@ -84,6 +84,10 @@ class CategoryController extends Controller
         return view('category.edit', ['category' => $category]);
     }
 
+    /**
+     * @param integer $id
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
     public function update($id)
     {
         $find_category = new FindCategory();
