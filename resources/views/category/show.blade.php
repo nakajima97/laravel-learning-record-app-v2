@@ -18,20 +18,9 @@
                             <p>カテゴリー名：{{ $category->name }}</p>
                         </div>
                         <div>
-                            @if (!$category->is_archive)
-                                <form action="{{ route('categories.archive.store', ['id' => $category->id]) }}" method="POST">
-                                    @csrf
-                                    <button type="submit"
-                                        class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">アーカイブする</button>
-                                </form>
-                                @else
-                                <form action="{{ route('categories.archive.destroy', ['id' => $category->id]) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit"
-                                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">アーカイブ解除する</button>
-                                </form>
-                            @endif
+                            <button type="button">
+                                <a href="{{ route('categories.edit', $category->id) }}">編集</a>
+                            </button>
                         </div>
                     </section>
                 </div>

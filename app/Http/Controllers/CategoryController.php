@@ -67,4 +67,20 @@ class CategoryController extends Controller
 
         return view('category.show', ['category' => $category]);
     }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function edit($id)
+    {
+        $find_category = new FindCategory();
+        $category = $find_category($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        return view('category.edit', ['category' => $category]);
+    }
 }
