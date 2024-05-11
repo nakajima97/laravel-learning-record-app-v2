@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Models\User;
 use App\UseCases\Category\GetArchivedCategoryList;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
