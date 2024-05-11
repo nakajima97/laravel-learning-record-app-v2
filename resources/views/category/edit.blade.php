@@ -38,7 +38,7 @@
                                 @method('PUT')
                                 <p>
                                     <label for="name">カテゴリー名</label>
-                                    <input type="text" name="name" id="name" value="{{ $category->name }}" class="w-full p-2 border border-gray-300 rounded">
+                                    <input type="text" name="name" id="name" value="{{ $category->name }}" class="w-full dark:bg-gray-800 bg-opacity-40 rounded border dark:border-gray-700 dark:focus:border-indigo-500 dark:focus:bg-gray-900 dark:focus:ring-2 focus:ring-indigo-900 text-base outline-none dark:text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </p>
                                 <div class="flex justify-end">
                                     <input type="submit" value="更新" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" />
