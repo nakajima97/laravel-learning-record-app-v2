@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
-use App\Models\User;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\UseCases\Category\GetArchivedCategoryList;
 use App\UseCases\Category\GetCategoryList;
 use App\UseCases\Category\StoreCategory;
@@ -66,5 +66,41 @@ class CategoryController extends Controller
         }
 
         return view('category.show', ['category' => $category]);
+    }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function edit($id)
+    {
+        $find_category = new FindCategory();
+        $category = $find_category($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        return view('category.edit', ['category' => $category]);
+    }
+
+    /**
+     * @param integer $id
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateCategoryRequest $request, $id)
+    {
+        $find_category = new FindCategory();
+        $category = $find_category($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        $request_category = $request->makeCategory();
+        $category->fill($request_category->toArray());
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 }

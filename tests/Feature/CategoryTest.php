@@ -114,4 +114,23 @@ class CategoryTest extends TestCase
         $response->assertStatus(302);
         $this->assertDatabaseHas('categories', ['id' => $category->id, 'is_archive' => true]);
     }
+
+    public function test_カテゴリー名の変更が可能(): void
+    {
+        $user = User::factory()->create();
+
+        $category = Category::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $input = [
+            'name' => '変更後のカテゴリー名'
+        ];
+
+        $response = $this->actingAs($user)
+            ->put('/categories/' . $category->id, $input);
+
+        $response->assertStatus(302);
+        $this->assertDatabaseHas('categories', ['id' => $category->id, 'name' => '変更後のカテゴリー名']);
+    }
 }
