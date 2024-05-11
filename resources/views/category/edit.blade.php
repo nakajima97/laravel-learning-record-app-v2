@@ -33,12 +33,16 @@
                             </div>
                         </div>
                         <div class="p-4 w-full">
-                            <form method="POST"">
+                            <form action="{{ route('categories.update', $category->id) }}" method="POST" class="flex flex-col gap-2">
                                 @csrf
                                 @method('PUT')
-                                <label for="name">カテゴリー名</label>
-                                <input type="text" name="name" id="name" value="{{ $category->name }}" class="w-full p-2 border border-gray-300 rounded">
-                                <input type="submit" value="更新" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" />
+                                <p>
+                                    <label for="name">カテゴリー名</label>
+                                    <input type="text" name="name" id="name" value="{{ $category->name }}" class="w-full p-2 border border-gray-300 rounded">
+                                </p>
+                                <div class="flex justify-end">
+                                    <input type="submit" value="更新" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" />
+                                </div>
                             </form>
                         </div>
                     </section>

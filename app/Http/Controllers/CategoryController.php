@@ -83,4 +83,19 @@ class CategoryController extends Controller
 
         return view('category.edit', ['category' => $category]);
     }
+
+    public function update($id)
+    {
+        $find_category = new FindCategory();
+        $category = $find_category($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        $category->name = request('name');
+        $category->save();
+
+        return redirect()->route('categories.index');
+    }
 }
