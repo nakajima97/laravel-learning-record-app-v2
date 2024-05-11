@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\User;
 use App\UseCases\Category\GetArchivedCategoryList;
 use App\UseCases\Category\GetCategoryList;
@@ -88,7 +89,7 @@ class CategoryController extends Controller
      * @param integer $id
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function update($id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
         $find_category = new FindCategory();
         $category = $find_category($id);
@@ -97,7 +98,8 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $category->name = request('name');
+        $request_category = $request->makeCategory();
+        $category->fill($request_category->toArray());
         $category->save();
 
         return redirect()->route('categories.index');
